@@ -1,0 +1,2 @@
+[lint]
+allowed-unused-imports = ["hvplot.pandas"]
