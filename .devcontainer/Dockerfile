@@ -1,11 +1,21 @@
 FROM mcr.microsoft.com/devcontainers/python:3.12-bookworm
 
-USER vscode
+# devcontainer環境にuvをインストール
+RUN curl -LsSf https://astral.sh/uv/install.sh | sh && \
+    mv ~/.local/bin/uv /usr/local/bin/uv && \
+    chmod +x /usr/local/bin/uv && \
+    uv --version
 
-#devcontainer環境にuvをインストール
-RUN curl -LsSf https://astral.sh/uv/install.sh | sh
-#uvのパスを通す
-ENV PATH="/home/vscode/.local/bin:${PATH}"
+# devcontainer環境に Task をインストール
+RUN curl -LsSf https://taskfile.dev/install.sh | sh -s -- -b /usr/local/bin && \
+    chmod +x /usr/local/bin/task && \
+    task --version
 
-WORKDIR /home/vscode
-RUN uv venv
+# devcontainer環境に Docker Compose をインストール
+RUN curl -SL "https://github.com/docker/compose/releases/latest/download/docker-compose-linux-x86_64" -o /usr/local/bin/docker-compose && \
+    chmod +x /usr/local/bin/docker-compose
+
+# devcontainer環境にmise（バージョン管理ツール）をインストール
+RUN curl -fsSL https://mise.run | sh && \
+ln -s ~/.local/bin/mise /usr/local/bin/mise && \
+mise --version

@@ -1,0 +1,17 @@
+version: '3.0'
+
+tasks:
+  default:
+    cmds:
+      - task --list
+
+
+  format:
+    desc: format code
+    cmds: 
+      - uv run ruff format
+
+  lint:
+    desc: lint code
+    cmds:
+      - uv run ruff check
