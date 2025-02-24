@@ -5,9 +5,9 @@
     "remoteUser": "vscode", //devcontainer内のターミナルやタスクなどの実行するユーザを指定
     
     "features": {
-		"ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
+		"ghcr.io/devcontainers/features/docker-outside-of-docker:1": {} //コンテナ内でホストの Docker を使用できる設定
 	},
-    "workspaceFolder": "/workspace", //ホスト側のワークスペースのパスを指定
+    "workspaceFolder": "/workspace", //ワークスペースのルートディレクトリを設定
     
     "customizations": {
         "vscode": {
@@ -47,5 +47,5 @@
             }
         }
     },
-    "postStartCommand": "uv venv && uv sync"
+    "postStartCommand": "uv venv && uv sync" //devcontainer起動後に実行するコマンド
 }
