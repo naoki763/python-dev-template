@@ -9,6 +9,10 @@
 	},
     "workspaceFolder": "/workspace", //ワークスペースのルートディレクトリを設定
     
+    "mounts": [
+        "source=${localWorkspaceFolder},target=/workspace,type=bind"
+    ], //ホストのディレクトリをコンテナ内にマウントする設定
+
     "customizations": {
         "vscode": {
             "extensions": [ //vscodeの拡張機能を追加
@@ -44,8 +48,10 @@
                     "${workspaceFolder}/.venv/lib/python3.12/site-packages",
                     "${workspaceFolder}/src"
                 ]
+                
             }
         }
     },
+    "postCreateCommand": "mise use -y && mise install -y", //devcontainer作成後に実行するコマンド
     "postStartCommand": "uv venv && uv sync" //devcontainer起動後に実行するコマンド
 }

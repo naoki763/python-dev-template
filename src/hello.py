@@ -1,13 +1,13 @@
 def add(x, y):
-    return x + y  # ❌ 引数の間にスペースがない / 改行がない（PEP8違反）
+    return x + y  #  引数の間にスペースがない / 改行がない（PEP8違反）
 
 
-def unused_function():  # ❌ 未使用の関数（F401 警告）
+def unused_function():  #  未使用の関数（F401 警告）
     pass
 
 
-def multiply(a, b):  # ❌ スペースの不一致
-    return a * b  # ❌ インデントが不正
+def multiply(a, b):  #  スペースの不一致
+    return ab  #  インデントが不正
 
 
 def long_function_name(
@@ -41,11 +41,11 @@ def long_function_name(
     y1,
     z1,
 ):
-    return x + y  # ❌ 長すぎる行（E501）
+    return x + y  #  長すぎる行（E501）
 
 
-print("Hello, World!")  # ❌ 不要なスペース / クォートの統一が必要
+print("Hello, World!")  #  不要なスペース / クォートの統一が必要
 
 
 def dev(a, b, c):
-    return a * b * c
+    return ab * c

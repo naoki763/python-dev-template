@@ -5,6 +5,11 @@ tasks:
     cmds:
       - task --list
 
+  uv-start:
+    desc: start uv 
+    cmds:
+      - uv venv
+      - uv sync
 
   format:
     desc: format code
@@ -15,3 +20,4 @@ tasks:
     desc: lint code
     cmds:
       - uv run ruff check
+
